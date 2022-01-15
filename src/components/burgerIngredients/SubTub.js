@@ -1,6 +1,6 @@
 
 import { Tab } from '@ya.praktikum/react-developer-burger-ui-components';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useRef } from 'react';
 
 export function SubTub() {
