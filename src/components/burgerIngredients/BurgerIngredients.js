@@ -1,51 +1,38 @@
 import { Button, Counter, CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import React, { useState } from 'react'
 import bgStyle from './BurgerStyle.module.css'
-import {SubTub} from './SubTub'
+import { SubTub } from './SubTub'
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import productPropTypes from '../../utils/types';
 
-const productPropTypes = PropTypes.shape({
-  _id: PropTypes.string.isRequired,
-  __v: PropTypes.number,
-  type: PropTypes.string,
-  name: PropTypes.string,
-  price: PropTypes.number,
-  proteins: PropTypes.number,
-  fat: PropTypes.number,
-  carbohydrates: PropTypes.number,
-  calories: PropTypes.number,
-  image: PropTypes.string,
-  image_large: PropTypes.string,
-  image_mobile: PropTypes.string
-});
-const Product = ({data }) => {
-    const [show, setShow]=useState();
+const Product = ({ data }) => {
+  const [show, setShow] = useState();
 
   const image = (
     <img className={bgStyle.img}
       src={
-        data.image      }
+        data.image}
       alt={data.name}
     />
   );
   return (
-      <>
-    <div className={bgStyle.product} onClick={() => setShow(!show)}>
-        {show&&<>
+    <>
+      <div className={bgStyle.product} onClick={() => setShow(!show)}>
+        {show && <>
           <Modal >
-          <Child data={data}/>
-        </Modal></>}
-      <div className={bgStyle.counter}><Counter  count={21} size="small" /></div>
-      <div >{image}</div>
-      <div className={bgStyle.price}>{data.price}<CurrencyIcon/></div>
-      <div className={bgStyle.name}>{data.name}</div>
-    </div>
+            <Child data={data} />
+          </Modal></>}
+        <div className={bgStyle.counter}><Counter count={21} size="small" /></div>
+        <div >{image}</div>
+        <div className={bgStyle.price}>{data.price}<CurrencyIcon /></div>
+        <div className={bgStyle.name}>{data.name}</div>
+      </div>
     </>
   );
 };
-Product.propTypes={
-  data:productPropTypes
+Product.propTypes = {
+  data: productPropTypes
 }
 const modalRoot = document.getElementById('root');
 
@@ -54,7 +41,7 @@ class Modal extends React.Component {
     super(props);
     this.el = document.createElement('div');
   }
-  
+
   componentDidMount() {
     // Элемент портала добавляется в DOM-дерево после того, как
     // потомки компонента Modal будут смонтированы, это значит,
@@ -79,14 +66,14 @@ class Modal extends React.Component {
   }
 }
 
-Modal.propTypes={
-  data:productPropTypes
+Modal.propTypes = {
+  data: productPropTypes
 }
-function Child({data}) {
+function Child({ data }) {
   const image = (
     <img className={bgStyle.img2}
       src={
-        data.image      }
+        data.image}
       alt={data.name}
     />
   );
@@ -95,91 +82,88 @@ function Child({data}) {
   return (
     <div className={bgStyle.overlay} >
       <div className={bgStyle.details}>
-      <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between', width:'640px'}}>
-        <h1>Детали ингредиента</h1>
-      <Button type="secondary" size="small">Х</Button>
-      </div>
-            <div >{image}</div>
-            <div className={bgStyle.name2}>{data.name}</div> 
-            <ul className={bgStyle.energy}>
-              <li style={{width:'130px'}}>
-                <h2>Калории, ккал</h2>
-                <p>{data.calories}</p>
-              </li>
-              <li>
-                <h2>Белки, г</h2>
-                <p>{data.proteins}</p>
-              </li><li>
-                <h2>Жиры, г</h2>
-                <p>{data.fat}</p>
-              </li><li>
-                <h2>Углеводы, г</h2>
-                <p>{data.carbohydrates}</p>
-              </li>
-            </ul>
+        <div className={bgStyle.child}>
+          <h1>Детали ингредиента</h1>
+          <Button type="secondary" size="small">Х</Button>
         </div>
+        <div >{image}</div>
+        <div className={bgStyle.name2}>{data.name}</div>
+        <ul className={bgStyle.energy}>
+          <li style={{ width: '130px' }}>
+            <h2>Калории, ккал</h2>
+            <p>{data.calories}</p>
+          </li>
+          <li>
+            <h2>Белки, г</h2>
+            <p>{data.proteins}</p>
+          </li><li>
+            <h2>Жиры, г</h2>
+            <p>{data.fat}</p>
+          </li><li>
+            <h2>Углеводы, г</h2>
+            <p>{data.carbohydrates}</p>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 }
 
-Child.propTypes={
-  data:productPropTypes
+Child.propTypes = {
+  data: productPropTypes
 }
 
-class BurgerIngredients extends React.Component{
+class BurgerIngredients extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.data=props.data?props.data:[];
-    this.list=[];
-    this.show=false;
+    this.data = props.data ? props.data : [];
+    this.list = [];
+    this.show = false;
   }
-  
 
-    render()
-    {
-        return (
-          <div className={bgStyle.main}>
-           <div className={bgStyle.header}>
-             
-              <h1>Соберите бургер</h1>
-              
-              <SubTub/>
-            </div>
-            <ul className={'custom-scroll'}>
-            <li className={bgStyle.section} key={1}>
-            <h1 id='one'>Булки</h1>
-              {this.data.map((prod, index)=>{
-                if(prod.type=="bun"){
-                return <>
-                <Product key={index} data={prod} />
-                </>
-                }
-              }  )}
-              </li>
-            <li className={bgStyle.section} key={2}>
-            <h1 id='two'>Соусы</h1>
-            {this.data.map((prod, index)=>{
-              if(prod.type=="sauce"){
-                return <Product key={index} data={prod} />
-              }
-            }  )}
-            </li>
-            <li className={bgStyle.section} key={3}>
-            <h1 id='three'>Начинки</h1>
-            {this.data.map((prod, index)=>{
-              if(prod.type=="main"){
-                return <Product key={index} data={prod} />
-              }
-            }  )}
-            </li>
-            </ul>
+
+  render() {
+    return (
+      <div className={bgStyle.main}>
+        <div className={bgStyle.header}>
+
+          <h1>Соберите бургер</h1>
+
+          <SubTub />
         </div>
-        )
-    }
+        <ul className={'custom-scroll'}>
+          <li className={bgStyle.section} key={1}>
+            <h1 id='one'>Булки</h1>
+            {this.data.map((prod) => {
+              if (prod.type == "bun") {
+                return <Product key={prod._id} data={prod} />
+              }
+            })}
+          </li>
+          <li className={bgStyle.section} key={2}>
+            <h1 id='two'>Соусы</h1>
+            {this.data.map((prod) => {
+              if (prod.type == "sauce") {
+                return <Product key={prod._id} data={prod} />
+              }
+            })}
+          </li>
+          <li className={bgStyle.section} key={3}>
+            <h1 id='three'>Начинки</h1>
+            {this.data.map((prod) => {
+              if (prod.type == "main") {
+                return <Product key={prod._id} data={prod} />
+              }
+            })}
+          </li>
+        </ul>
+      </div>
+    )
+  }
 }
 
-BurgerIngredients.propTypes={
-  data:PropTypes.arrayOf(productPropTypes.isRequired).isRequired
+BurgerIngredients.propTypes = {
+  data: PropTypes.arrayOf(productPropTypes.isRequired).isRequired
 }
 export default BurgerIngredients;

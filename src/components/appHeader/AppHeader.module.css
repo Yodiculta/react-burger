@@ -1,24 +1,16 @@
 .container {
-  position: relative;
-  height: 88px;
-  width: 96%;
-  top:40px;
-  left:2%;
+  background-position: 10px 10px 10px 10px;
   background: #1C1C21;
-}
-.nav_panel{
-  display:flex;
+  width: 96%;
+  height: 88px;
   position: relative;
-  height: 56px;
-  left: 17%;
-  width:66%;
-  top: calc(50% - 56px/2);
+  top:40px;
+  display: flex;
+  gap:10%;
+  align-items: center;
   font-family: 'JetBrains', Arial, sans-serif;
   font-size: 16px;
-  line-height: 20px;
-  justify-content: space-between;
-  flex-direction: row;
-  align-items: center;
+  justify-content: center;
 }
 .item {
   height: 56px;
@@ -28,6 +20,9 @@
   align-items: center;
   gap: 8px;
   
+}
+.disabled{
+  color: #8585AD;
 }
 
 .item h3{
