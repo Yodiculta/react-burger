@@ -4,7 +4,7 @@ import BurgerConstructor from '../burgerConstructor/BurgerConstr';
 import BurgerIngredients from '../burgerIngredients/BurgerIngredients';
 import bgStyle from './App.module.css'
 
-const COSMO_BURGERS_URL = 'https://norma.nomoreparties.space/api/ingredients'
+const INGREDIENTS_URL = 'https://norma.nomoreparties.space/api/ingredients'
 
 function App() {
   const [apiRes, setApiRes] = React.useState([]);
@@ -14,7 +14,7 @@ function App() {
   React.useEffect(() => {
     const getData = async () => {
       setIsLoading(true);
-      fetch(COSMO_BURGERS_URL)
+      fetch(INGREDIENTS_URL)
         .then((res) => {
           if (!res.ok) throw new Error('Some error with fetch');
           else return res.json()
@@ -43,7 +43,6 @@ function App() {
           </>
         )}
       </div>
-      <div id="modal-overlay" />
     </div>
   );
 }

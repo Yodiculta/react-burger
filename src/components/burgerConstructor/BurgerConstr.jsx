@@ -10,11 +10,11 @@ import Modal from '../modalOverlay/ModalPortal';
 import Child from './ModalOverlay';
 
 function Product({
-  productDetails, type, isLocked, flag, name,
+  productDetails, type, isLocked, name,
 }) {
   return (
     <li className={bgStyle.list}>
-      {flag && <DragIcon type="primary" />}
+      {!isLocked && <DragIcon type="primary" />}
       <ConstructorElement
         type={type}
         isLocked={isLocked}
@@ -30,13 +30,11 @@ Product.propTypes = {
   productDetails: productPropTypes.isRequired,
   type: PropTypes.string,
   isLocked: PropTypes.bool,
-  flag: PropTypes.bool,
   name: PropTypes.string,
 }
 Product.defaultProps = {
   type: 'middle',
   isLocked: false,
-  flag: true,
   name: null,
 };
 
@@ -62,20 +60,20 @@ function BurgerConstructor({ bgCatalog }) {
           // eslint-disable-next-line no-underscore-dangle
           if (prod._id === '60d3b41abdacab0026a733c6') {
             // eslint-disable-next-line no-underscore-dangle
-            return <Product key={prod._id} type="top" productDetails={prod} isLocked flag={false} name="Краторная булка N-200i (верх)" />
+            return <Product key={prod._id} type="top" productDetails={prod} isLocked name="Краторная булка N-200i (верх)" />
           }
           return false
         })}
         {bgCatalog.map((prod) => {
           if (prod.type === 'sauce') {
             // eslint-disable-next-line no-underscore-dangle
-            return <Product key={prod._id} productDetails={prod} flag />
+            return <Product key={prod._id} productDetails={prod} />
           }
           return false
         })}
         {bgCatalog.map((prod) => {
           // eslint-disable-next-line no-underscore-dangle
-          if (prod._id === '60d3b41abdacab0026a733c6') return <Product key={prod._id} type="bottom" productDetails={prod} isLocked flag={false} name="Краторная булка N-200i (низ)" />
+          if (prod._id === '60d3b41abdacab0026a733c6') return <Product key={prod._id} type="bottom" productDetails={prod} isLocked name="Краторная булка N-200i (низ)" />
           return false
         })}
       </ul>
