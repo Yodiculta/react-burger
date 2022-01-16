@@ -2,43 +2,50 @@ import React from 'react';
 import AppHeader from '../appHeader/AppHeader';
 import BurgerConstructor from '../burgerConstructor/BurgerConstr';
 import BurgerIngredients from '../burgerIngredients/BurgerIngredients';
-
 import bgStyle from './App.module.css'
 
+const COSMO_BURGERS_URL = 'https://norma.nomoreparties.space/api/ingredients'
+
 function App() {
-   const [state, setState] = React.useState({ 
-      
-      list: [],
-      isLoading: false,
-      hasError:false
-      })
+  const [apiRes, setApiRes] = React.useState([]);
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [hasError, setHasError] = React.useState(false);
 
-   const url="https://norma.nomoreparties.space/api/ingredients"
+  React.useEffect(() => {
+    const getData = async () => {
+      setIsLoading(true);
+      fetch(COSMO_BURGERS_URL)
+        .then((res) => {
+          if (!res.ok) throw new Error('Some error with fetch');
+          else return res.json()
+        })
+        .then((req) => {
+          setApiRes(req.data);
+          setIsLoading(false)
+        })
+        .catch((e) => {
+          setHasError(true);
+          setIsLoading(false);
+          return e;
+        });
+    };
+    getData();
+  }, [])
 
-     React.useEffect(()=>{
-       const getData = async() => {
-        setState({ ...state, hasError: false, isLoading: true });
-        fetch(url)
-          .then(res => res.json())
-          .then(req => setState({ ...state, list:req.data, isLoading: false }))
-          .catch(e => {
-            setState({ ...state, hasError: true, isLoading: false });
-          });
-      };
-       getData();
-       console.log(state.list);
-       console.log(typeof(state.list))
-      }, [])
-
-   return (
-      <div >
-         <AppHeader />
-         <div className={bgStyle.content}>
-         {!state.hasError&&state.list&&<BurgerIngredients data={state.list} />}
-            {<BurgerConstructor list={state.list} />}
-         </div>
+  return (
+    <div>
+      <AppHeader />
+      <div className={bgStyle.content}>
+        {!hasError && !isLoading && apiRes && (
+          <>
+            <BurgerIngredients bgCatalog={apiRes} />
+            <BurgerConstructor bgCatalog={apiRes} />
+          </>
+        )}
       </div>
-   );
+      <div id="modal-overlay" />
+    </div>
+  );
 }
 
 export default App;

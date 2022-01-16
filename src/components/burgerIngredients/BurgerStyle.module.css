@@ -188,3 +188,6 @@
   width:640px;
   z-index: 2;
 }
+.tabs{
+  display:flex;
+}
