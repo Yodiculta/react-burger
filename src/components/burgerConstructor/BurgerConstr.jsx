@@ -65,7 +65,7 @@ function BurgerConstructor({ bgCatalog }) {
           return false
         })}
         {bgCatalog.map((prod) => {
-          if (prod.type === 'sauce') {
+          if ((prod.type === 'sauce')||(prod.type === 'main')) {
             // eslint-disable-next-line no-underscore-dangle
             return <Product key={prod._id} productDetails={prod} />
           }

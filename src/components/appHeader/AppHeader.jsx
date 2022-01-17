@@ -7,7 +7,8 @@ import appHeader from './AppHeader.module.css'
 function AppHeader() {
   return (
     <div className={appHeader.container}>
-      <div className={appHeader.item}>
+      <div className={appHeader.group}>
+        <div className={appHeader.item}>
         <BurgerIcon />
         {' '}
         <h3>Конструктор</h3>
@@ -17,7 +18,8 @@ function AppHeader() {
         <ListIcon type="secondary" />
         <h3 className={appHeader.disabled}>Лента заказов</h3>
       </div>
-      <div><Logo /></div>
+      </div>
+      <div className={appHeader.logo}><Logo /></div>
       <div className={appHeader.item}>
         <ProfileIcon type="secondary" />
         <h3 className={appHeader.disabled}>Личный кабинет</h3>

@@ -3,5 +3,7 @@
     position: relative;
     display: flex;
     gap: 40px;
-    justify-content: center 
+    justify-content: center;
+    width: 1920px;
+    margin: 0 auto;
 }

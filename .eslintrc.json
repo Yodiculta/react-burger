@@ -12,9 +12,8 @@
     ],
     "rules": {
       "semi": 0,
-      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", "tsx"] }],
-      "linebreak-style": 0,
-      "trailing-comma": 0
-    }
-    
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", "tsx"] }]
+          },
+    "linebreak-style": 0
 }
+  

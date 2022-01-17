@@ -1,39 +1,43 @@
 
 .main{
-    font-family: 'JetBrains', Arial, sans-serif;
+    font-family: 'JetBrains Mono', Arial, sans-serif;
   font-style: normal;
   font-weight: bold;
   color: #F2F2F3;
   display:flex;
-  justify-content: center;
-  align-content: center;
+  position: relative;
+  margin-top:20px;
   flex-direction: column;
   font-size: 12px;
-  width:630px;
   
 }
-.header
+.header h1
 {
+/* {
   font-size: 30px;
-  margin-top: 40px;
+  margin-top: 40px; */ 
+  font-family: 'JetBrains Mono', Arial, sans-serif;
+ 
+font-style: normal;
+font-weight: bold;
+font-size: 36px;
+line-height: 40px;
+}
+.header{
+  margin-left: 50px;
 }
 .item:choosed{
   color: white;
 }
 .menu {
-      display: flex;
       gap: 0px;
       flex-direction: row;
-      width: 610px;
       height: 56px;
-      position: fixed;
-      justify-items: center;
-      align-content: center;
     }
     .item {
         color: #8585AD;
         width: 200px;
-        font-family: 'JetBrains', Arial, sans-serif;
+        font-family: 'JetBrains Mono', Arial, sans-serif;
     text-align: center;
     
     font-size: 16px;
@@ -60,10 +64,11 @@
   flex-wrap: wrap;
   align-content: flex-start;
   justify-content: start;
+  margin-left:16px;
 }
 .section h1{
   font-size: 24px;
-  width:610px;
+  width:590px;
   align-content: center;
 }
   
@@ -106,8 +111,8 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   overflow: auto;
-  height: 912px;
-  width: 610px;
+  height: 664px;
+  width: 620px;
   list-style-type: none;
 
 }
@@ -136,7 +141,7 @@
   margin-left: -360px;
   margin-top: -269px;
   flex-direction: column;
-  font-family: 'JetBrains', Arial, sans-serif;
+  font-family: 'JetBrains Mono', Arial, sans-serif;
   height: 539px;
   width: 720px;
   pointer-events: none;
