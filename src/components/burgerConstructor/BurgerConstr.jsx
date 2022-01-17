@@ -54,9 +54,7 @@ function BurgerConstructor({ bgCatalog }) {
 
   return (
     <div className={bgStyle.main}>
-
-      <ul className="custom-scroll">
-        {bgCatalog.map((prod) => {
+      {bgCatalog.map((prod) => {
           // eslint-disable-next-line no-underscore-dangle
           if (prod._id === '60d3b41abdacab0026a733c6') {
             // eslint-disable-next-line no-underscore-dangle
@@ -64,6 +62,8 @@ function BurgerConstructor({ bgCatalog }) {
           }
           return false
         })}
+      
+      <ul className="custom-scroll">
         {bgCatalog.map((prod) => {
           if ((prod.type === 'sauce')||(prod.type === 'main')) {
             // eslint-disable-next-line no-underscore-dangle
@@ -71,13 +71,12 @@ function BurgerConstructor({ bgCatalog }) {
           }
           return false
         })}
-        {bgCatalog.map((prod) => {
+      </ul>
+      {bgCatalog.map((prod) => {
           // eslint-disable-next-line no-underscore-dangle
           if (prod._id === '60d3b41abdacab0026a733c6') return <Product key={prod._id} type="bottom" productDetails={prod} isLocked name="Краторная булка N-200i (низ)" />
           return false
         })}
-      </ul>
-
       <div className={bgStyle.bottom}>
         <div className={bgStyle.price}>
           {price}
