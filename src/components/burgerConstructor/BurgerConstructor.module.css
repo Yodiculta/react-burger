@@ -30,6 +30,11 @@
   margin-top: 40px;
 }
 
+.but {
+  
+  margin-right: 0px;
+}
+
 .price {
   font-size: 48px;
   font-family: 'JetBrains Mono', Arial, sans-serif;
@@ -51,12 +56,6 @@
   z-index: 1;
 }
 
-/* .details Button {
-  position: relative;
-  align-content: flex-end;
-  right: -300px;
-} */
-
 .details {
   /* При добавлении класса 'active'*/
   position: absolute;
@@ -70,13 +69,12 @@
   border-radius: 40px;
   z-index: 2;
 }
-
-.content {
+.content{
   display: flex;
   font-family: 'JetBrains Mono', Arial, sans-serif;
   flex-direction: column;
   align-items: center;
-  gap: 0px;
+  gap:0px;
 }
 
 .disabled {
@@ -89,21 +87,16 @@
   margin-top: 120px;
 
 }
-
-.closeIco {
-  position: absolute;
-  /* блок занимает ширину содержимого, max-width её ограничивает */
-  top: 60px;
-  /* прикрепить к верху родителя */
+.closeIco{
+  position: absolute; /* блок занимает ширину содержимого, max-width её ограничивает */
+  top: 60px; /* прикрепить к верху родителя */
   right: 40px;
 
 }
-
-.details h1 {
+.details h1{
   margin-top: 32px;
 }
-
-.image {
+.image{
   margin-top: 40px;
   margin-bottom: 40px;
 }

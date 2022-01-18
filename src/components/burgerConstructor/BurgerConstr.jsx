@@ -88,7 +88,9 @@ function BurgerConstructor({ bgCatalog }) {
           Оформить заказ
         </Button>
 
-        {isShow
+
+      </div>
+      {isShow
           && (
             // eslint-disable-next-line jsx-a11y/click-events-have-key-events
             <div onClick={showChanger}>
@@ -97,8 +99,6 @@ function BurgerConstructor({ bgCatalog }) {
               </Modal>
             </div>
           )}
-      </div>
-
     </div>
   )
 }
