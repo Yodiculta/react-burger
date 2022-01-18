@@ -1,33 +1,37 @@
 @import '~@ya.praktikum/react-developer-burger-ui-components/dist/ui/box.css';
+
 .container {
   background: #1C1C21 no-repeat center top / cover;
   width: 100%;
   height: 88px;
   position: relative;
   display: flex;
-  gap:5%;
+  gap: 5%;
   justify-content: center;
   align-items: center;
   font-family: 'JetBrains Mono', Arial, sans-serif;
   font-size: 16px;
   margin-left: 20px;
-  
-font-style: normal;
-font-weight: normal;
+
+  font-style: normal;
+  font-weight: normal;
 }
-.logo{
+
+.logo {
   margin-right: 190px;
 }
-.group{
+
+.group {
   font-size: 16px;
   font-family: 'JetBrains Mono', Arial, sans-serif;
-  
-  display:flex;
+
+  display: flex;
   flex-direction: row;
-  
-font-style: normal;
-font-weight: normal;
+
+  font-style: normal;
+  font-weight: normal;
 }
+
 .item {
   height: 56px;
   border-radius: 10px;
@@ -35,15 +39,17 @@ font-weight: normal;
   display: flex;
   align-items: center;
   gap: 8px;
-  
+
 }
-.disabled{
+
+.disabled {
   color: #8585AD;
 }
 
-.item h3{
+.item h3 {
   white-space: nowrap;
 }
-.item:disabled{
-  color:#8585AD;
+
+.item:disabled {
+  color: #8585AD;
 }

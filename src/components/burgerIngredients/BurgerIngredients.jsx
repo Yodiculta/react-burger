@@ -7,38 +7,24 @@ import productPropTypes from '../../utils/types';
 import Modal from '../modalOverlay/ModalPortal';
 import Child from './ModalOverlay';
 
-function Product({ productDetails }) {
-  const [isShow, setIsShow] = useState();
-
+function Product({ productDetails, onOpen }) {
   const image = (
     <img
       className={bgStyle.img}
       src={
         productDetails.image
-}
+      }
       alt={productDetails.name}
     />
   );
-  const handleClick = () => {
-    setIsShow(!isShow)
-  }
-  const onClose = (e) => {
-    if (e.code === 'Escape') {
-      setIsShow(!isShow);
-    }
-  }
 
   return (
     // eslint-disable-next-line jsx-a11y/no-static-element-interactions
     <div
       className={bgStyle.product}
-      onClick={handleClick}
+      onClick={() => onOpen(productDetails)}
     >
-      {isShow && (
-      <Modal onClose={onClose}>
-        <Child data={productDetails} />
-      </Modal>
-      )}
+
       <div className={bgStyle.counter}><Counter count={21} size="small" /></div>
       <div>{image}</div>
       <div className={bgStyle.price}>
@@ -69,6 +55,22 @@ function SubTub() {
 }
 
 function BurgerIngredients({ bgCatalog }) {
+  const [isShow, setIsShow] = useState(false);
+  const [productData, setProductData] = useState(null);
+  const onOpen = (prod) => {
+    if (!isShow) {
+      setProductData(prod);
+      setIsShow(true);
+    }
+  }
+  const onClose = (e) => {
+    e.preventDefault();
+    if (isShow) {
+      setProductData(null);
+      setIsShow(false);
+    }
+  }
+
   return (
     <div className={bgStyle.main}>
       <div className={bgStyle.header}>
@@ -83,7 +85,7 @@ function BurgerIngredients({ bgCatalog }) {
           {bgCatalog.map((prod) => {
             if (prod.type === 'bun') {
               // eslint-disable-next-line no-underscore-dangle
-              return <Product key={prod._id} productDetails={prod} />
+              return <Product key={prod._id} productDetails={prod} onOpen={onOpen} />
             }
             return false
           })}
@@ -93,7 +95,7 @@ function BurgerIngredients({ bgCatalog }) {
           {bgCatalog.map((prod) => {
             if (prod.type === 'sauce') {
               // eslint-disable-next-line no-underscore-dangle
-              return <Product key={prod._id} productDetails={prod} />
+              return <Product key={prod._id} productDetails={prod} onOpen={onOpen} />
             }
             return false
           })}
@@ -103,12 +105,17 @@ function BurgerIngredients({ bgCatalog }) {
           {bgCatalog.map((prod) => {
             if (prod.type === 'main') {
               // eslint-disable-next-line no-underscore-dangle
-              return <Product key={prod._id} productDetails={prod} />
+              return <Product key={prod._id} productDetails={prod} onOpen={onOpen} />
             }
             return false
           })}
         </li>
       </ul>
+      {isShow && productData && (
+        <Modal onClose={onClose}>
+          <Child data={productData} onClose={onClose} />
+        </Modal>
+      )}
     </div>
   )
 }

@@ -47,25 +47,26 @@ function BurgerConstructor({ bgCatalog }) {
   }
 
   const onClose = (e) => {
-    if (e.code === 'Escape') {
-      showChanger();
+    e.preventDefault();
+    if (isShow) {
+      setIsShow(false);
     }
   }
 
   return (
     <div className={bgStyle.main}>
       {bgCatalog.map((prod) => {
+        // eslint-disable-next-line no-underscore-dangle
+        if (prod._id === '60d3b41abdacab0026a733c6') {
           // eslint-disable-next-line no-underscore-dangle
-          if (prod._id === '60d3b41abdacab0026a733c6') {
-            // eslint-disable-next-line no-underscore-dangle
-            return <Product key={prod._id} type="top" productDetails={prod} isLocked name="Краторная булка N-200i (верх)" />
-          }
-          return false
-        })}
-      
+          return <Product key={prod._id} type="top" productDetails={prod} isLocked name="Краторная булка N-200i (верх)" />
+        }
+        return false
+      })}
+
       <ul className="custom-scroll">
         {bgCatalog.map((prod) => {
-          if ((prod.type === 'sauce')||(prod.type === 'main')) {
+          if ((prod.type === 'sauce') || (prod.type === 'main')) {
             // eslint-disable-next-line no-underscore-dangle
             return <Product key={prod._id} productDetails={prod} />
           }
@@ -73,10 +74,10 @@ function BurgerConstructor({ bgCatalog }) {
         })}
       </ul>
       {bgCatalog.map((prod) => {
-          // eslint-disable-next-line no-underscore-dangle
-          if (prod._id === '60d3b41abdacab0026a733c6') return <Product key={prod._id} type="bottom" productDetails={prod} isLocked name="Краторная булка N-200i (низ)" />
-          return false
-        })}
+        // eslint-disable-next-line no-underscore-dangle
+        if (prod._id === '60d3b41abdacab0026a733c6') return <Product key={prod._id} type="bottom" productDetails={prod} isLocked name="Краторная булка N-200i (низ)" />
+        return false
+      })}
       <div className={bgStyle.bottom}>
         <div className={bgStyle.price}>
           {price}
@@ -89,12 +90,12 @@ function BurgerConstructor({ bgCatalog }) {
 
         {isShow
           && (
-          // eslint-disable-next-line jsx-a11y/click-events-have-key-events
-          <div onClick={showChanger}>
-            <Modal onClose={onClose}>
-              <Child />
-            </Modal>
-          </div>
+            // eslint-disable-next-line jsx-a11y/click-events-have-key-events
+            <div onClick={showChanger}>
+              <Modal onClose={onClose}>
+                <Child onClose={onClose} />
+              </Modal>
+            </div>
           )}
       </div>
 

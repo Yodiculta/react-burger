@@ -1,109 +1,120 @@
-
-.main{
-    font-family: 'JetBrains Mono', Arial, sans-serif;
+.main {
+  font-family: 'JetBrains Mono', Arial, sans-serif;
   font-style: normal;
   font-weight: bold;
   color: #F2F2F3;
-  display:flex;
+  display: flex;
   position: relative;
   flex-direction: column;
   font-size: 12px;
-  
+
 }
-.header h1
-{
-  margin-top: 40px;  
+
+.header h1 {
+  margin-top: 40px;
   font-family: 'JetBrains Mono', Arial, sans-serif;
- height: 40px;
-font-style: normal;
-font-weight: bold;
-font-size: 36px;
-line-height: 40px;
+  height: 40px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 40px;
 }
-.header{
+
+.header {
   margin-left: 50px;
 }
-.item:choosed{
+
+.item:choosed {
   color: white;
 }
+
 .menu {
-      gap: 0px;
-      flex-direction: row;
-      height: 56px;
-    }
-    .item {
-        color: #8585AD;
-        width: 200px;
-        font-family: 'JetBrains Mono', Arial, sans-serif;
-    text-align: center;
-    
-    font-size: 16px;
-    border-bottom: 3px solid transparent; 
-  }  
-  .item:hover{
-    border-bottom: 3px solid blue; 
-    color:white;
-    }
-    .item .active {
-      border-bottom: 3px solid red;
-  }
-  .navTab
-{
+  gap: 0px;
+  flex-direction: row;
+  height: 56px;
+}
+
+.item {
+  color: #8585AD;
+  width: 200px;
+  font-family: 'JetBrains Mono', Arial, sans-serif;
+  text-align: center;
+
+  font-size: 16px;
+  border-bottom: 3px solid transparent;
+}
+
+.item:hover {
+  border-bottom: 3px solid blue;
+  color: white;
+}
+
+.item .active {
+  border-bottom: 3px solid red;
+}
+
+.navTab {
   height: 28px;
   padding: 0px 0px 40px;
 
 }
-.section{
-  display:flex;
+
+.section {
+  display: flex;
   gap: 24px;
   flex-direction: row;
-  width:590px;
+  width: 590px;
   flex-wrap: wrap;
   align-content: flex-start;
   justify-content: start;
-  margin-left:16px;
+  margin-left: 16px;
 }
-.section h1{
+
+.section h1 {
   font-size: 24px;
-  width:590px;
+  width: 590px;
   align-content: center;
 }
-  
-  .product{
-    display: flex;
-    flex-direction: column;
-    width: 272px;
-    height: 208px;
-  }
-  .img{
-    height: 120px;
-    width: 220px;
-    justify-content: center;
-  }
-  .price{
-    display:flex;
-    gap: 9px;
-    flex-direction: row;
-    justify-content: center;
-    width: 240px;
-    font-size: 28px;
-    margin-right: 9px;
-  }
-  .name{
-    display: block;
-    height: 48px;
-    width: 220px;
-    font-size: 16px;
-    justify-content: center;
-    align-content: center;
-    text-align: center;
 
-  }
+.product {
+  display: flex;
+  flex-direction: column;
+  width: 272px;
+  height: 208px;
+}
 
-.counter{
+.img {
+  height: 120px;
+  width: 220px;
+  justify-content: center;
+}
+
+.price {
+  display: flex;
+  gap: 9px;
+  flex-direction: row;
+  justify-content: center;
+  width: 240px;
+  font-size: 28px;
+  margin-right: 9px;
+}
+
+.name {
+  display: block;
+  height: 48px;
+  width: 220px;
+  font-size: 16px;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+
+}
+
+.counter {
   position: relative;
 }
-.main ul{
+
+.main ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -113,8 +124,9 @@ line-height: 40px;
   list-style-type: none;
 
 }
-.overlay{
-  position:absolute;
+
+.overlay {
+  position: absolute;
   background-color: rgba(0, 0, 0, 0.6);
   top: 0px;
   left: 0px;
@@ -122,74 +134,96 @@ line-height: 40px;
   height: 100%;
   color: white;
   transition: 0.5s all;
-  z-index: 2;
-  pointer-events: none;
-}
-.overlay button{
-  pointer-events: all; /* Возвращаем события*/
 }
 
 
-.details { /* При добавлении класса 'active'*/
+.details {
+  /* При добавлении класса 'active'*/
   position: absolute;
   display: flex;
-  top:50%;
-  left:50%;
+  top: 50%;
+  left: 50%;
   margin-left: -360px;
   margin-top: -269px;
   flex-direction: column;
   font-family: 'JetBrains Mono', Arial, sans-serif;
   height: 539px;
   width: 720px;
-  pointer-events: none;
   border-radius: 40px;
-  background-color:  #1C1C21;
+  background-color: #1C1C21;
   align-items: center;
-  z-index: 3;
 }
-.details h1{
+
+.details h1 {
   font-size: 36px;
-  padding-left: 40px;
-  align-self: flex-start;
 }
-.name2{
+
+.name2 {
   position: relative;
   width: 530px;
   font-size: 24px;
   text-align: center;
   align-self: center;
+  margin-top: 16px;
 }
-.img2{
+
+.img2 {
   height: 240px;
   width: 480px;
   justify-content: center;
 }
-.energy{
+
+.energy {
   display: flex;
-  gap:20px;
   list-style-type: none;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 20px;
+  gap: 20px;
+  width: 500px;
 }
-.energy li{
-  width: 112px;
-}
-.energy h2{
+
+
+
+.energy h2 {
+  font-family: 'JetBrains Mono', Arial, sans-serif;
+  color: #8585AD;
+  font-style: normal;
+  font-weight: normal;
   font-size: 16px;
 }
-.energy p{
+
+.energy p {
+  font-family: 'Iceland', 'JetBrains Mono', sans-serif;
+  font-style: normal;
+  font-weight: normal;
   font-size: 28px;
+  color: #8585AD;
+  margin-top: 0%;
+  margin-bottom: 0%;
 }
+
 @media (max-width: 1000px) {
   .main {
     width: 80%;
   }
 }
-.child{
-  display:flex;
-  flex-direction:row;
-  justify-content:space-between;
-  width:640px;
+
+.child {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 640px;
   z-index: 2;
+  height: 64px;
+  margin-top: 40px;
 }
-.tabs{
-  display:flex;
+
+.tabs {
+  display: flex;
+}
+
+.closeIco {
+  pointer-events: all;
 }

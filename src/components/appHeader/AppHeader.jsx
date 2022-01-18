@@ -9,15 +9,15 @@ function AppHeader() {
     <div className={appHeader.container}>
       <div className={appHeader.group}>
         <div className={appHeader.item}>
-        <BurgerIcon />
-        {' '}
-        <h3>Конструктор</h3>
-        {' '}
-      </div>
-      <div className={appHeader.item}>
-        <ListIcon type="secondary" />
-        <h3 className={appHeader.disabled}>Лента заказов</h3>
-      </div>
+          <BurgerIcon />
+          {' '}
+          <h3>Конструктор</h3>
+          {' '}
+        </div>
+        <div className={appHeader.item}>
+          <ListIcon type="secondary" />
+          <h3 className={appHeader.disabled}>Лента заказов</h3>
+        </div>
       </div>
       <div className={appHeader.logo}><Logo /></div>
       <div className={appHeader.item}>
