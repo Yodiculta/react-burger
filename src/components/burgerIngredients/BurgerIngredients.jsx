@@ -17,12 +17,15 @@ function Product({ productDetails, onOpen }) {
       alt={productDetails.name}
     />
   );
+  const handleClick = () =>{
+    onOpen(productDetails)
+  }
 
   return (
     // eslint-disable-next-line jsx-a11y/no-static-element-interactions
     <div
       className={bgStyle.product}
-      onClick={() => onOpen(productDetails)}
+      onClick={handleClick}
     >
 
       <div className={bgStyle.counter}><Counter count={21} size="small" /></div>
